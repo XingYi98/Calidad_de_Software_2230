@@ -1,8 +1,6 @@
 function index(req, res) {
     if (req.session.loggedin) {
-          // Output username
-      res.redirect('/');
-      
+      res.redirect('/');   
     } else {
       res.render('login/index');
     }
@@ -33,7 +31,6 @@ function index(req, res) {
     }
     res.redirect('/');
   }
-  
   
   module.exports = {
     index: index,
