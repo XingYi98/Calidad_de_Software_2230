@@ -1,1 +1,77 @@
-<h1>HOME</h1>
+{{#ifEquals roles "DNP"}}
+<h2 class="text-green-500 text-center my-8 text-2xl">¿Desea generar un nuevo mecanismo de concertación?</h2>
+<p class="text-gray-500 text-center my-5">Selecciona el tipo</p>
+<ul class="justify-center flex">
+    <li class="px-4">
+        <a href="/open" class="rounded-md bg-indigo-500 w-full text-lg text-white font-semibold p-2 my-3 hover:bg-indigo-600 focus:bg-indigo-700">Abierto</a>
+    </li>
+    <li class="px-4">
+        <a href="/close" class="rounded-md bg-indigo-500 w-full text-lg text-white font-semibold p-2 my-3 hover:bg-indigo-600 focus:bg-indigo-700">Cerrado</a>
+    </li>
+</ul>
+<div class="my-15">
+    <h1 class="text-center my-8 text-3xl">Concertaciones</h1>
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+  <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-12">
+
+    <table class="table-fixed w-full">
+      <thead>
+        <tr class="bg-indigo-500 text-white">
+          <th class="w-20 py-4 ...">ID</th>
+          <th class="w-1/4 py-4 ...">Tipo</th>
+          <th class="w-1/4 py-4 ...">Estado</th>
+          <th class="w-28 py-4 ...">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="py-3 px-6">1</td>
+          <td class="p-3">Abierto</td>
+          <td class="p-3">Activo</td>
+          <td class="p-4 flex">
+            <form action="/" method="POST" class="mx-16">
+              <input type="hidden" value="1" name="id">
+              <button class="bg-green-500 text-white px-3 py-1 rounded-sm" type="submit">
+                <i class="fas fa-toggle-on"></i></button>
+            </form>
+            <a href="/" class="bg-gray-500 text-white px-3 py-1 rounded-sm">
+              <i class="fas fa-box-ballot"></i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+{{else}}
+<div class="my-15">
+    <h1 class="text-center my-8 text-3xl">Concertaciones</h1>
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+  <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-12">
+
+    <table class="table-fixed w-full">
+      <thead>
+        <tr class="bg-indigo-500 text-white">
+          <th class="w-20 py-4 ...">ID</th>
+          <th class="w-1/4 py-4 ...">Tipo</th>
+          <th class="w-1/4 py-4 ...">Estado</th>
+          <th class="w-28 py-4 ...">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="py-3 px-6">1</td>
+          <td class="p-3">Abierto</td>
+          <td class="p-3">Activo</td>
+          <td class="p-4 mx-16 flex">
+            <a href="/" class="bg-gray-500 text-white px-3 py-1 rounded-sm">
+              <i class="fas fa-box-ballot"></i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+{{/ifEquals}}
+

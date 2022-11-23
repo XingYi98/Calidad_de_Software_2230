@@ -4,6 +4,7 @@ const myconnection = require('express-myconnection');
 const mysql = require('mysql');
 const session = require('express-session');
 const bodyParser = require('body-parser')
+const Handlebars = require('handlebars');
 const loginRoutes = require('./routes/login');
 
 const app = express();
@@ -41,5 +42,13 @@ app.listen(app.get('port'), () => {
 app.use('/', loginRoutes);
 
 app.get('/', (req, res) => {
- 	res.render('home');
+  if(req.session.loggedin == true) {
+    res.render('home', {name: req.session.name, roles: req.session.roles});
+  }else{
+    res.redirect('/login');
+  }
+});
+
+Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
+  return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
 });
